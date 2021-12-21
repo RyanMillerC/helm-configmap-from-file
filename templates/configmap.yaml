@@ -3,4 +3,5 @@ kind: ConfigMap
 metadata:
   name: my-config
 data:
-  config.json: | {{ .Files.Get "files/config.json" | nindent 4 }}
+# Snippet from https://github.com/helm/helm/issues/2573
+{{ (tpl (.Files.Glob "files/*").AsConfig . ) | indent 2 }}
