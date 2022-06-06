@@ -1,3 +1,4 @@
 {
-  "config": "{{ .Values.config.value }}"
+  "config": "{{ .Values.config.value }}",
+  "namespace": "{{ .Release.Namespace }}"
 }
